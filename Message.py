@@ -7,8 +7,7 @@ def getnametime(x):
 class Message:
 
     def __init__(self, strings):
-        self.strings = []
-        self.strings.extend(strings)
+        self.strings = list(strings)
         self.name, self.time = getnametime(strings[0])
         self.strings.pop(0)
         self.strings = tuple(self.strings)
