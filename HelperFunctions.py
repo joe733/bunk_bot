@@ -55,20 +55,16 @@ def returnComparatorList(imageName):
     comparatorList = []
     messagesBuffer.append(str_list[0])
     for i in range(1, len(str_list)):
-        if(regex_flag[i] == 0):
-            messagesBuffer.append(str_list[i])
-        else:
+        if regex_flag[i] != 0:
             messageObj = Message(messagesBuffer)
 
-            x = []
-            x.append(messageObj.getname())
+            x = [messageObj.getname()]
             x.append(messageObj.gettime())
             x.append(messageObj.getmessages())
             comparatorList.append(tuple(x))
 
             messagesBuffer = []
-            messagesBuffer.append(str_list[i])
-
+        messagesBuffer.append(str_list[i])
     messageObj = Message(messagesBuffer)
 
     x = []
